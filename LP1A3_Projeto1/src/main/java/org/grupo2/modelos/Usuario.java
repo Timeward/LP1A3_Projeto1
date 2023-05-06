@@ -2,7 +2,7 @@ package org.grupo2.modelos;
 
 import java.util.Optional;
 
-public abstract class Usuario {
+public abstract class Usuario{
     private String nome;
     private String cpf;
     private String endereco;
