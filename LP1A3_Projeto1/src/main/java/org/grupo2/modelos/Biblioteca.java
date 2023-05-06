@@ -20,7 +20,7 @@ public class Biblioteca {
     private static final int PORT = 8080;
 
     public static void startServer() throws IOException {
-        clientes.put(1, new Cliente(1,"Nome Cliente 1", "123.123.123-0", "Endereco 1", "cliente1@email.com", "senha_cliente1"));
+        clientes.put(1, new Cliente(1,"Nome Cliente 1", "123.123.123-00", "Endereco 1", "cliente1@email.com", "senha_cliente1"));
         HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
         server.createContext("/clientes", new ClienteHandler());
         server.setExecutor(null);
