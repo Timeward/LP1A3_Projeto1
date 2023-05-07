@@ -57,6 +57,6 @@ public class ConsumidorFuncionario {
                 .uri(URI.create(BASE_URL + "/" + id))
                 .DELETE()
                 .build();
-        response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        httpClient.send(request, HttpResponse.BodyHandlers.ofString());
     }
 }
