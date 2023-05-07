@@ -92,7 +92,7 @@ public class Livro {
     }
 
 
-    public void emprestar(Livro livro, Cliente cliente) throws Exception{
+    public Emprestimo emprestar(Livro livro, Cliente cliente) throws Exception{
         //Executa as ações necessarias para realizar um empréstimo
         //checa se o numero de exemplares disponiveis é maior q 0
         if (livro.getNumExemplaresDisponiveis() > 0){
@@ -100,6 +100,7 @@ public class Livro {
             livro.setNumExemplaresDisponiveis(livro.getNumExemplaresDisponiveis() - 1);
             //cria objeto emprestimo
             Emprestimo emprestimo = new Emprestimo(id, livro, cliente);
+            return emprestimo;
         }
         else{
             throw new Exception("Não há exemplares disponíveis para empréstimo.");
