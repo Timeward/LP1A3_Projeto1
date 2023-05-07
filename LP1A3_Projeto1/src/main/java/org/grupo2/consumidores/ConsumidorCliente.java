@@ -42,8 +42,8 @@ public class ConsumidorCliente {
         System.out.println("GET /clientes/" + id + ": " + response.body());
 
         // PUT /clientes/{id}
-        requestBody = "{\"id\": " + id + ", \"nome\": \"nome 3\", \"cpf\": \"456.411.988-63\", "+
-                "\"endereco\": \"endereco 3\", \"email\": \"email3@email.com\", \"senha\": \"senha 3\"}";
+        requestBody = "{\"id\": 3, \"nome\": \"Nome Cliente 3\", \"cpf\": \"100.000.000-03\", "+
+                "\"endereco\": \"Endereco Cliente 3\", \"email\": \"cliente3@email.com\", \"senha\": \"senha_cliente3\"}";
         request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/" + id))
                 .header("Content-Type", "application/json")
@@ -57,6 +57,6 @@ public class ConsumidorCliente {
                 .uri(URI.create(BASE_URL + "/" + id))
                 .DELETE()
                 .build();
-        response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        httpClient.send(request, HttpResponse.BodyHandlers.ofString());
     }
 }
