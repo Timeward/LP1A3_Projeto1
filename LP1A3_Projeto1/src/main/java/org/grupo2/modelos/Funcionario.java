@@ -11,7 +11,7 @@ public class Funcionario extends Usuario implements GerenciamentoDeUsuarios, Ger
     //construtor
     private int id;
 
-    public Funcionario(String nome, String cpf, String endereco, String email, String senha, int id) {
+    public Funcionario(int id, String nome, String cpf, String endereco, String email, String senha) {
         super(nome, cpf, endereco, email, senha);
         this.id = id;
     }
@@ -102,5 +102,23 @@ public class Funcionario extends Usuario implements GerenciamentoDeUsuarios, Ger
     @Override
     public void buscarUsuario(){
         return;
+    }
+    
+    public String toJson() {
+        return "{\"id\": " + this.getId() + ", \"nome\": \"" + this.getNome() +
+                "\", \"cpf\": \"" + this.getCpf() + "\", \"endereco\": \"" + this.getEndereco() +
+                "\", \"email\": \"" + this.getEmail() + "\"}";
+    }
+
+    public static Funcionario fromJson(String requestBody) {
+        String requestBodyClean = requestBody.replace("{", "").replace("}","");
+        String[] splitProperties = requestBodyClean.split(",");
+        int jsonId = Integer.parseInt(splitProperties[0].split(":")[1].trim());
+        String jsonNome = splitProperties[1].split(":")[1].trim().replace("\"","");
+        String jsonCpf = splitProperties[2].split(":")[1].trim().replace("\"","");
+        String jsonEndereco = splitProperties[3].split(":")[1].trim().replace("\"","");
+        String jsonEmail = splitProperties[4].split(":")[1].trim().replace("\"","");
+        String jsonSenha = splitProperties[5].split(":")[1].trim().replace("\"","");
+        return new Funcionario(jsonId, jsonNome, jsonCpf, jsonEndereco, jsonEmail, jsonSenha);
     }
 }
