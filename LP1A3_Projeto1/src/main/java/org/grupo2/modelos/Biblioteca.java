@@ -52,9 +52,9 @@ public class Biblioteca {
         ConsumidorCliente.main(null);
         System.out.println("\n*** ACTIONS DO MODELO Funcionario ***");
         ConsumidorFuncionario.main(null);
-        System.out.println("\n*** ACTIONS DO MODELO Funcionario ***");
-        ConsumidorAdministrador.main(null);
         System.out.println("\n*** ACTIONS DO MODELO Administrador ***");
+        ConsumidorAdministrador.main(null);
+        System.out.println("\n*** ACTIONS DO MODELO Livro ***");
         ConsumidorLivro.main(null);
 
         // stop server
